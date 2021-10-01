@@ -1,0 +1,23 @@
+{
+  "name": "recipe-calculator",
+  "version": "1.0.0",
+  "description": "This is a Repo which contains a simple structure to test Web APIs.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-toscani/recipe-calculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/j-toscani/recipe-calculator/issues"
+  },
+  "homepage": "https://github.com/j-toscani/recipe-calculator#readme",
+  "devDependencies": {
+    "typescript": "^4.4.3"
+  }
+}
