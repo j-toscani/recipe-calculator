@@ -11,9 +11,13 @@ class Calculator {
     return document.querySelectorAll(this.query);
   }
 
+  get pp() {
+    return this._pp;
+  }
+
   set pp(val: number) {
-    if (val < 0) {
-      val = 0;
+    if (val < 1) {
+      val = 1;
     }
     this._pp = val;
     this.update();
@@ -24,6 +28,10 @@ class Calculator {
     elements.forEach((element) =>
       this.updateAmount(element as HTMLSpanElement)
     );
+    const personsDisplay = document.querySelector(".persons");
+    if (personsDisplay) {
+      personsDisplay.textContent = `${this.pp}`;
+    }
   }
 
   updateAmount(element: HTMLSpanElement) {
