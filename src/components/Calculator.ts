@@ -12,7 +12,9 @@ class Calculator {
   }
 
   set pp(val: number) {
-    Math.max(0, val);
+    if (val < 0) {
+      val = 0;
+    }
     this._pp = val;
     this.update();
   }
@@ -27,8 +29,8 @@ class Calculator {
   updateAmount(element: HTMLSpanElement) {
     const amount = element.getAttribute("data-minamount");
     if (amount) {
-      const numberAmount = parseInt(amount);
-      element.innerText = `${numberAmount * this.pp}`;
+      const numberAmount = parseFloat(amount);
+      element.innerText = `${numberAmount * this._pp}`;
     }
   }
 
@@ -39,10 +41,20 @@ class Calculator {
   init() {
     this.buttons.forEach((button) => {
       const isAddButton = Array.from(button.classList).includes("add");
-      const cb = isAddButton ? () => this.pp++ : () => this.pp--;
-      button.addEventListener("click", () => {
-        cb();
-      });
+      if (isAddButton) {
+        button.addEventListener("click", () => {
+          this.pp = this._pp + 1;
+        });
+      } else {
+        button.addEventListener("click", () => {
+          this.pp = this._pp - 1;
+        });
+      }
     });
   }
+}
+
+export function setUpCalculator(buttonQuery: string, pp: number) {
+  const calc = new Calculator(buttonQuery, pp);
+  calc.init();
 }

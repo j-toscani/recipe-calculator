@@ -8,13 +8,13 @@ export default class IngredientEntry {
   }
 
   _createContent() {
-    const { name, amount, unit } = this.data;
-
+    let { name, amount, unit } = this.data;
+    amount = amount.replace(",", ".");
     return `
       <span class="ingredient"> ${name} </span>
       <span class="ammount-display">
         <span class="ammount" data-minamount="${
-          parseInt(amount) / this.pp
+          parseFloat(amount) / this.pp
         }">${amount}</span>
         <span class="unit">${unit}</span>
       </span>
