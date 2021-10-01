@@ -4,7 +4,8 @@
   "description": "This is a Repo which contains a simple structure to test Web APIs.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "watch": "tsc --watch"
   },
   "repository": {
     "type": "git",
