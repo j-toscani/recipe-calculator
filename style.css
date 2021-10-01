@@ -18,11 +18,3 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: 15vh 1fr 20vh;
 }
-
-header {
-  background: gray;
-}
-
-footer {
-  background: lightgray;
-}
